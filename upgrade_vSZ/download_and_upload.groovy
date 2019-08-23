@@ -10,7 +10,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python3 getImg.py $szVer'
+                sh 'python3 upgrade_vSZ/getXimg.py $szVer'
             }
         }
         stage('Uplod to FTP') {
@@ -19,7 +19,7 @@ pipeline {
                 BITBUCKET_COMMON_CREDS = credentials('ftp')
             }
             steps {
-                sh 'python3 ftpUpload.py $ftpIp $BITBUCKET_COMMON_CREDS_USR $BITBUCKET_COMMON_CREDS_PSW $szVer'
+                sh 'python3 upgrade_vSZ/uploadXimg.py $ftpIp $BITBUCKET_COMMON_CREDS_USR $BITBUCKET_COMMON_CREDS_PSW $szVer'
             }
         }
     }
