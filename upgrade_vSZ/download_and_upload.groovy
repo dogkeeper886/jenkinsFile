@@ -14,7 +14,9 @@ pipeline {
                 }
             }
             steps {
+                echo 'Download start.'
                 sh 'python3 upgrade_vSZ/getXimg.py $szVer'
+                echo 'Upload start'
                 sh 'python3 upgrade_vSZ/uploadXimg.py $ftpIp $BITBUCKET_COMMON_CREDS_USR $BITBUCKET_COMMON_CREDS_PSW $szVer'
             }
         }
