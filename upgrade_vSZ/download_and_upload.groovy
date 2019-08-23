@@ -26,7 +26,7 @@ pipeline {
                 BITBUCKET_COMMON_CREDS = credentials('vsz')
             }
             steps {
-                sh 'python3 upgrade_vSZ/ia.py $szIp $BITBUCKET_COMMON_CREDS_USR $BITBUCKET_COMMON_CREDS_PSW $szVer'
+                sh 'python3 upgrade_vSZ/upgradeScript.py $szIp $BITBUCKET_COMMON_CREDS_USR $BITBUCKET_COMMON_CREDS_PSW $szVer'
             }
         }
     }
