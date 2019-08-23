@@ -1,6 +1,6 @@
 pipeline {
     agent any
-        stages {
+    stages {
         stage('Download Image') {
             input {
                 message "Input vSZ version"
@@ -8,6 +8,7 @@ pipeline {
                 parameters {
                     string(name: 'szVer', defaultValue: '5.2.0.0.449', description: 'Apply to start pipeline')
                 }
+            }
             steps {
                 sh 'python3 getImg.py $szVer'
             }
@@ -22,4 +23,5 @@ pipeline {
             }
         }
     }
+
 }
