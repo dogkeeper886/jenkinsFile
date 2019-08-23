@@ -6,11 +6,6 @@ pipeline {
         string(name: 'szIp', defaultValue: '10.206.20.109', description: 'vsz ip address')
     }
     stages {
-        stage('Setup Environment') {
-            steps {
-                sh 'python3 upgrade_vSZ/writeEnv.py szVer $szVer'
-            }
-        }
         stage('Download Image') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('ftp')
