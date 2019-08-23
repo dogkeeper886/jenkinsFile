@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-        environment {
-            ftpIp = '10.206.5.20'
-            BITBUCKET_COMMON_CREDS = credentials('ftp')
-        }
         stage('Download Image') {
+            environment {
+                ftpIp = '10.206.5.20'
+                BITBUCKET_COMMON_CREDS = credentials('ftp')
+            }
             input {
                 message "Input vSZ version"
                 ok "Apply"
