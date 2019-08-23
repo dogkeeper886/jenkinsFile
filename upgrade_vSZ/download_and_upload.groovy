@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'szVer', defaultValue: '5.2.0.0.449', description: 'vsz ximg file version')
+        string(name: 'szVer', defaultValue: '5.1.2.0.266', description: 'vsz ximg file version')
         string(name: 'ftpIp', defaultValue: '10.206.5.20', description: 'ftp server ip')
-        string(name: 'szIp', defaultValue: '10.206.20.109', description: 'vsz ip address')
+        string(name: 'szIp', defaultValue: '10.206.20.114', description: 'vsz ip address')
     }
     stages {
         stage('Download Image') {                        
