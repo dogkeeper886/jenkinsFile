@@ -6,16 +6,16 @@ pipeline {
         string(name: 'szIp', defaultValue: '10.206.20.109', description: 'vsz ip address')
     }
     stages {
-        stage('Download Image') {
-            environment {
-                BITBUCKET_COMMON_CREDS = credentials('ftp')
-            }            
+        stage('Download Image') {                        
             steps {
                 echo 'Download start.'
                 sh 'python3 upgrade_vSZ/getXimg.py $szVer'
             }
         }
         stage('Upload to FTP') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('ftp')
+            }
             steps {
                 echo 'Upload start'
                 sh 'python3 upgrade_vSZ/uploadXimg.py $ftpIp $BITBUCKET_COMMON_CREDS_USR $BITBUCKET_COMMON_CREDS_PSW $szVer'
