@@ -8,7 +8,7 @@ if len(sys.argv) != 2:
 
 def ximgInfo(szVer):
     ximg = {
-        'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/groups/ruckus-public/ruckus/official/mega/sz/ML/5.2.0.0/vscg/' + szVer + '/vscg-' + szVer + '.ximg',
+        'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.1.2.0/sz_512/' + szVer + '/vscg/' + szVer + '.ximg',
         'fileName': 'vscg-' + szVer + '.ximg'
     }
     return ximg
