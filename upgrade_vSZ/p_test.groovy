@@ -4,8 +4,11 @@ pipeline {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
     }
     stages {
-        steps {
-            echo "$PERSON"
+        stage('S1') {
+            steps {
+                echo "$PERSON"
+            }
         }
+        
     }
 }
