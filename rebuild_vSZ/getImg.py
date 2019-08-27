@@ -6,14 +6,14 @@ if len(sys.argv) != 2:
     print('Invalid argument [SZ_VERSION]')
     exit(1)
 
-def ximgInfo(szVer):
-    ximg = {
-        'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.1.2.0/sz_512/' + szVer + '/vscg/' + 'vscg-' + szVer + '.ximg',
-        'fileName': 'vscg-' + szVer + '.ximg'
+def qcow2Info(szVer):
+    qcow2 = {
+        'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.1.2.0/sz_512/' + szVer + '/vscg/' + 'vscg-' + szVer + '.qcow2',
+        'fileName': 'vscg-' + szVer + '.qcow2'
     }
-    return ximg
+    return qcow2
 
-fileInfo = ximgInfo(sys.argv[1])
+fileInfo = qcow2Info(sys.argv[1])
 
 def getImg():
     try:

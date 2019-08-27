@@ -9,7 +9,7 @@ pipeline {
         stage('Download Image') {                        
             steps {
                 echo 'Download start.'
-                sh 'python3 upgrade_vSZ/getXimg.py $szVer'
+                sh 'python3 rebuild_vSZ/getImg.py $szVer'
             }
         }
         stage('Upload to OpenStack') {
