@@ -9,7 +9,7 @@ if len(sys.argv) != 2:
 def qcow2Info(szVer):
     qcow2 = {
         #'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.1.2.0/sz_512/' + szVer + '/vscg/' + 'vscg-' + szVer + '.qcow2',
-        'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.2.0.0/ML/' + szVer + '/vscg/vscg-' + szVer + '.qcow2'
+        'fileUrl': 'http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.2.0.0/ML/' + szVer + '/vscg/vscg-' + szVer + '.qcow2',
         'fileName': 'vscg-' + szVer + '.qcow2'
     }
     return qcow2
