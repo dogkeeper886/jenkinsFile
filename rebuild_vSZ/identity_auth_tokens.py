@@ -1,5 +1,6 @@
 import json
 import requests
+import os
 
 apiAccess = {
     'service': 'Identity',
@@ -15,11 +16,11 @@ apiData = {
             ],
             "password": {
                 "user": {
-                    "name": "jenkins",
+                    "name": os.environ['BITBUCKET_COMMON_CREDS_USR'],
                     "domain": {
                         "name": "Default"
                     },
-                    "password": "jenkins"
+                    "password": os.environ['BITBUCKET_COMMON_CREDS_PSW']
                 }
             }
         },

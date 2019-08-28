@@ -6,8 +6,17 @@ pipeline {
     stages {
         stage('Download Image') {                        
             steps {
-                echo 'Download start.'
+                echo 'Download start'
                 sh 'python3 rebuild_vSZ/getQcow2.py'
+            }
+        }
+        stage('Login OpenStack') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('openstack')
+            }
+            steps {
+                echo 'Login start'
+                sh 'python3 rebuild_vSZ/identity_auth_tokens.py'
             }
         }
     }
