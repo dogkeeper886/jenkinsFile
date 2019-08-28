@@ -13,4 +13,9 @@ if os.path.exists(apiAccess['fileName']):
     print('File exist. Skip')
 else:
     apiUrl = apiAccess['endpoint'] + apiAccess['api']
-    urllib.request.urlretrieve(apiUrl, filename=apiAccess['fileName'])
+    try:
+        urllib.request.urlretrieve(apiUrl, filename=apiAccess['fileName'])
+    except urllib.error.URLError as err:
+        print(err)
+        exit(1)
+    
