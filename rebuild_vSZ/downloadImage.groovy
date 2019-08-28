@@ -20,8 +20,10 @@ pipeline {
             }
         }
         stage('Image Upload') {
-            echo 'Upload start'
-            sh 'python3 rebuild_vSZ/image_list.py'
+            steps{
+                echo 'Upload start'
+                sh 'python3 rebuild_vSZ/image_list.py'
+            }
         }
     }
 }
