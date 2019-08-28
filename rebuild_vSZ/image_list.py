@@ -1,10 +1,12 @@
 import requests
 import json
+import os
 
 apiAccess = {
     'service': 'Image',
     'endpoint': 'http://10.206.5.12:9292',
-    'api': '/v2/images'
+    'api': '/v2/images',
+    'fileName': 'vscg-' + os.environ['szVer'] + '.qcow2'
 }
 
 apiData = dict()
@@ -33,3 +35,11 @@ def get(apiAccess, headers):
 resp = get(apiAccess, headers)
 imageList = resp.json()['images']
 print(json.dumps(imageList, indent=4))
+
+nameList = list()
+for image in imageList:
+    nameList.append(image['name'])
+if apiAccess['fileName'] in nameList:
+    print('File exist. Skip')
+else:
+    print('Upload start')
