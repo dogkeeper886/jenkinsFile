@@ -19,8 +19,9 @@ pipeline {
                 }
             }
             steps {
-                echo "$szVer"
-                echo "$choice"
+                echo 'Start compute'
+                sh 'echo $szVer'
+                sh 'echo $instanceName'
             }
         }
     }
