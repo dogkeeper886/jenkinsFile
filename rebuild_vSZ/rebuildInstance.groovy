@@ -10,7 +10,7 @@ pipeline {
                 sh 'python3 rebuild_vSZ/identity_auth_tokens.py'
             }
         }
-        stage() {
+        stage('Rebuild Instance') {
             input {
                 message "Input parameter"
                 parameters {
