@@ -1,15 +1,11 @@
 import pexpect
-import sys
-
-if len(sys.argv) != 5:
-    print('Invalid parameter [IP] [USER_NAME] [PASSWORD] [SZ_VER]')
-    exit(1)
+import os
 
 szInfo = {
-    'ip': sys.argv[1],
-    'userName': sys.argv[2],
-    'passphrase': sys.argv[3],
-    'szVer': sys.argv[4]
+    'ip': os.environ['szIp'],
+    'userName': os.environ['BITBUCKET_COMMON_CREDS_USR'],
+    'passphrase': os.environ['BITBUCKET_COMMON_CREDS_PSW'],
+    'szVer': os.environ['szVer']
 }
 
 cmd = 'ssh ' + szInfo['userName'] + '@' + szInfo['ip']
