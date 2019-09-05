@@ -1,13 +1,13 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'szVer', defaultValue: '5.1.2.0.277', description: 'Input SZ version')        
+        string(name: 'szVer', defaultValue: '5.2.0.0.476', description: 'Input SZ version')        
     }
     stages {
         stage('Download Image') {                        
             steps {
                 echo 'Download start'
-                sh 'python3 rebuild_vSZ/getQcow2.py'
+                sh 'python3 vDp/getQcow2.py'
             }
         }
         /*stage('Login OpenStack') {
