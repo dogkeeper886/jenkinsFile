@@ -10,7 +10,7 @@ pipeline {
                 sh 'python3 rebuild_vSZ/getQcow2.py'
             }
         }
-        stage('Login OpenStack') {
+        /*stage('Login OpenStack') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('openstack')
             }
@@ -24,6 +24,6 @@ pipeline {
                 echo 'Upload start'
                 sh 'python3 rebuild_vSZ/image_list.py'
             }
-        }
+        }*/
     }
 }
