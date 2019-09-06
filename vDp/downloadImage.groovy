@@ -18,7 +18,7 @@ pipeline {
                 OS_PROJECT_NAME = lab
                 OS_USER_DOMAIN_NAME = Default
                 OS_PROJECT_DOMAIN_NAME = Default
-                OS_AUTH_URL = http://10.206.6.112:5000/v3
+                OS_AUTH_URL = 'http://10.206.6.112:5000/v3'
                 OS_IDENTITY_API_VERSION = 3
             }
             steps {
