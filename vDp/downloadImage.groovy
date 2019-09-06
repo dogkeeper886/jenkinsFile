@@ -10,7 +10,7 @@ pipeline {
                 sh 'python3 vDp/getQcow2.py'
             }
         }
-        stage('Login OpenStack') {
+        stage('Upload Image to OpenStack') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('openstack')
                 //OS_USERNAME = BITBUCKET_COMMON_CREDS_USR
