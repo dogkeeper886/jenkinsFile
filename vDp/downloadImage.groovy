@@ -15,11 +15,11 @@ pipeline {
                 BITBUCKET_COMMON_CREDS = credentials('openstack')
                 //OS_USERNAME = BITBUCKET_COMMON_CREDS_USR
                 //OS_PASSWORD = BITBUCKET_COMMON_CREDS_PSW
-                OS_PROJECT_NAME = lab
+                OS_PROJECT_NAME = 'lab'
                 OS_USER_DOMAIN_NAME = 'Default'
                 OS_PROJECT_DOMAIN_NAME = 'Default'
                 OS_AUTH_URL = 'http://10.206.6.112:5000/v3'
-                OS_IDENTITY_API_VERSION = 3
+                OS_IDENTITY_API_VERSION = '3'
             }
             steps {
                 echo 'Login start'
