@@ -25,7 +25,7 @@ if fileName in imageList:
     print('File exist', fileName)
 else:
     print('File not found', fileName)
-    with open(fileName, 'rb') as fimage:
+    with open(fileName) as fimage:
         glance.images.create(
             name=fileName,
             is_public='False',
