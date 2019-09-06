@@ -27,7 +27,7 @@ else:
     print('File not found', fileName)
     with open(fileName, 'rb') as fimage:
         glance.images.create(
-            name="myimage",
+            name=fileName,
             is_public=False,
             disk_format="qcow2",
             container_format="bare",
