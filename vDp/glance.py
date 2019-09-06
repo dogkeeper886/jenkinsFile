@@ -24,13 +24,13 @@ fileName = 'vdp-' + env['szVer'] + '.qcow2'
 if fileName in imageList:
     print('File exist', fileName)
 else:
-    print('File not found', fileName)
-    with open(fileName, 'rt') as fimage:
-        glance.images.create(
-            name=fileName,
-            is_public='False',
-            disk_format="qcow2",
-            container_format="bare",
-            data=fimage
+    print('File upload start', fileName)
+    imageCreate = glance.images.create(
+        name=fileName,
+        is_public='False',
+        disk_format='qcow2',
+        container_format='bare'
         )
-
+    glance.images.upload(image_id=dict(imageCreate)['id'], image_data=open(fileName, 'rb'))
+    
+    
