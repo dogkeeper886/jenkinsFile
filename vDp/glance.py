@@ -28,7 +28,7 @@ else:
     with open(fileName, 'rb') as fimage:
         glance.images.create(
             name=fileName,
-            is_public=False,
+            is_public='False',
             disk_format="qcow2",
             container_format="bare",
             data=fimage
