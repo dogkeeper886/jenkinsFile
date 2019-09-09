@@ -10,7 +10,13 @@ pipeline {
                 sh 'python3 vDp/getQcow2.py'
             }
         }
-        stage('Upload Image to OpenStack') {
+        stage('Copy Image to kvm') {
+            steps {
+                sh 'ansible -u root kvm -m ping'
+            }
+
+        }
+        /*stage('Upload Image to OpenStack') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('openstack')
                 //OS_USERNAME = BITBUCKET_COMMON_CREDS_USR
@@ -25,7 +31,7 @@ pipeline {
                 echo 'Login start'
                 sh 'python3 vDp/glance.py'
             }
-        }
+        }*/
         /*stage('Image Upload') {
             steps{
                 echo 'Upload start'
