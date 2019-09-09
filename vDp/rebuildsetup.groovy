@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Setup vDp') {
             environment {
-                BITBUCKET_COMMON_CREDS = credentials('vsz')
+                BITBUCKET_COMMON_CREDS = credentials('kvm')
             }                        
             steps {
                 echo 'Setup start'
