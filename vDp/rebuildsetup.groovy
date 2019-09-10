@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'szVer', defaultValue: '5.2.0.0.476', description: 'Input SZ version')        
+    }
     stages {
         stage('Rebuild vDP') {           
             steps {
