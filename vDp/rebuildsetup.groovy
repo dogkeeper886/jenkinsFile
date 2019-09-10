@@ -14,7 +14,6 @@ pipeline {
             when {
                 environment name: 'REBUILD', value: true 
             }
-                      
             steps {
                 echo 'Rebuild start'
                 sh 'ansible -u root kvm -m virt -a "name=vdp state=shutdown"'
