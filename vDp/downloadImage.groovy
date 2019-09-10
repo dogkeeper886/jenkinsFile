@@ -14,7 +14,6 @@ pipeline {
             steps {
                 sh 'ansible -u root kvm -m ping'
                 sh 'echo "Start file vdp-$szVer.qcow2 to KVM"'
-                sh 'printenv'
                 sh 'ansible -u root kvm -m copy -a "src=$WORKSPACE/vdp-$szVer.qcow2 dest=/var/lib/libvirt/images/"'
             }
         }
