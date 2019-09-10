@@ -10,6 +10,7 @@ pipeline {
                 ok "Apply"
                 parameters {
                     booleanParam(name: 'REBUILD', defaultValue: true, description: 'rebuild parameter')
+                }
             }
             when {
                 environment name: 'REBUILD', value: true 
