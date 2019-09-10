@@ -44,6 +44,8 @@ pipeline {
 
             steps {
                 echo 'Setup start'
+                echo 'Wait for vDP start'
+                sleep 180
                 sh 'python3 vDp/setupVdp.py'
             }
         }
