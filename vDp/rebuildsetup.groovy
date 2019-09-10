@@ -4,7 +4,17 @@ pipeline {
         string(name: 'szVer', defaultValue: '5.2.0.0.476', description: 'Input SZ version')        
     }
     stages {
-        stage('Rebuild vDP') {           
+        stage('Rebuild vDP') {
+            input {
+                message "Should we rebuild instance?"
+                ok "Apply"
+                parameters {
+                    booleanParam(name: 'REBUILD', defaultValue: true, description: 'rebuild parameter')
+            }
+            when {
+                environment name: 'REBUILD', value: true 
+            }
+                      
             steps {
                 echo 'Rebuild start'
                 sh 'ansible -u root kvm -m virt -a "name=vdp state=shutdown"'
