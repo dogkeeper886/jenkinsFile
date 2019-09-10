@@ -34,9 +34,9 @@ pipeline {
             }
         }
         stage('Setup vDp') {
-            environment {
+            /*environment {
                 BITBUCKET_COMMON_CREDS = credentials('kvm')
-            }
+            }*/
             when { environment name: 'SETUP', value: 'true' }
 
             steps {

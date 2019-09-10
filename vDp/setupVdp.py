@@ -2,17 +2,17 @@ import pexpect
 import sys
 from os import environ
 kvmIp = '10.206.6.111'
-kvmUser = environ['BITBUCKET_COMMON_CREDS_USR']
-kvmPass = environ['BITBUCKET_COMMON_CREDS_PSW']
-cmd = 'ssh ' + kvmUser + '@' + kvmIp
+#kvmUser = environ['BITBUCKET_COMMON_CREDS_USR']
+#kvmPass = environ['BITBUCKET_COMMON_CREDS_PSW']
+cmd = 'ssh root@' + kvmIp
 vszIp = '192.168.162.5'
 
 child = pexpect.spawn(cmd, encoding='utf-8')
 child.logfile = sys.stdout
 child.timeout = 600
 # login kvm
-child.expect('Password')
-child.sendline(kvmPass)
+#child.expect('Password')
+#child.sendline(kvmPass)
 child.expect('#')
 # enter consile
 child.sendline('virsh console vdp')
