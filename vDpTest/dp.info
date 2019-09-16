@@ -1,0 +1,11 @@
+show data-plane
+show data-plane
+   No.   Name           DP MAC Address      Data IP           Data External IP  Data External Port  Data VLAN   Management/Control IP  Management/Control External IP  Management/Control VLAN  Serial Number                                                    Firmware       Managed By  Status         Registration State  Uptime         Last Seen                
+
+   ----- -------------- ------------------- ----------------- ----------------- ------------------- ----------- ---------------------- ------------------------------- ------------------------ ---------------------------------------------------------------- -------------- ----------- -------------- ------------------- -------------- ------------------------ 
+
+   1     host-192-168-  52:54:00:CA:90:4F   192.168.163.19                      0                   1           192.168.162.15         192.168.162.15                  1                        97D5N03F4RAN0LTPVE9LS5CTXWWF525400CA904F5254001B1BD0             5.2.0.0.490    host-192-1  Managed        Approved            23h 52m        2019-09-12 08:16:23 GMT  
+
+         162-15                                                                                                                                                                                                                                                                 68-162-5                                                                               
+
+[1mhost-192-168-162-5#[m 
