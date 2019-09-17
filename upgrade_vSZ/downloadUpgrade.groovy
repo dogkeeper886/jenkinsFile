@@ -4,7 +4,6 @@ pipeline {
         string(name: 'szVer', defaultValue: '5.2.0.0.476', description: 'Input SZ version')
         booleanParam(name: 'UPGRADE', defaultValue: false, description: 'Upgrade vSZ')
         string(name: 'szIp', defaultValue: '10.206.6.115', description: 'Input SZ IP')
-
     }
     stages {
         stage('Download file') {
@@ -27,7 +26,7 @@ pipeline {
             when { environment name: 'UPGRADE', value: 'true' }
             steps {
                 echo 'Upgrade start'
-                sh 'pyton3 upgrade_vSZ/upgradeVsz.py'
+                sh 'python3 upgrade_vSZ/upgradeVsz.py'
             }
         }
        
