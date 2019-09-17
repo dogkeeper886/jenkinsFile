@@ -21,7 +21,7 @@ pipeline {
             }
         }
         stage('Upgrade SZ') {
-            envirinment {
+            environment {
                 BITBUCKET_COMMON_CREDS = credentials('vsz')
             }
             when { environment name: 'UPGRADE', value: 'true' }
