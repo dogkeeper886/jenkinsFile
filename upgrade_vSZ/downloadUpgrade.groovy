@@ -9,8 +9,7 @@ pipeline {
             when { not { expression { fileExists 'vscg-' + szVer + '.ximg' } } }
             steps {
                 echo 'File Download '
-                sh 'wget http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.2.0.0/ML/$szVer/vscg/vscg-$szVer.ximg'
-                
+                sh 'wget http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.2.0.0/ML/$szVer/vscg/vscg-$szVer.ximg'                
             }
         }
         stage('Copy image to KVM') {
