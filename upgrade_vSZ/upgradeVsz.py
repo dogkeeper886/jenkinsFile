@@ -36,7 +36,7 @@ class szcli:
         self.con.sendline('')
         self.con.expect('Verify upgrade status', timeout=300)
         self.con.sendline('')
-        self.con.expect('[yes/no]',  timeout=900)
+        self.con.expect('[yes/no]', timeout=900)
         self.con.sendline('yes')
         self.con.expect('#')
         self.con.sendline('show backup-upgrade-state')
