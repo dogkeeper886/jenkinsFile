@@ -29,7 +29,7 @@ class szcli:
         self.con.expect('[yes/no]')
         self.con.sendline('yes')
         self.con.expect('Starting to copy')
-        self.con.expect('Succeed to copy')
+        self.con.expect('Succeed to copy', timeout=300)
         self.con.expect('Upload upgrade file')
         self.con.expect('Verify upgrade status')
         self.con.expect('[yes/no]')
