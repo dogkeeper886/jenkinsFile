@@ -30,13 +30,15 @@ class szcli:
         self.con.sendline('yes')
         self.con.expect('Starting to copy')
         self.con.sendline('')
-        self.con.expect('Succeed to copy', timeout=300)
+        self.con.timeout = 300
+        self.con.expect('Succeed to copy')
         self.con.sendline('')
         self.con.expect('Upload upgrade file')
         self.con.sendline('')
-        self.con.expect('Verify upgrade status', timeout=300)
+        self.con.expect('Verify upgrade status')
         self.con.sendline('')
-        self.con.expect('[yes/no]', timeout=900)
+        self.con.timeout = 900
+        self.con.expect('[yes/no]')
         self.con.sendline('yes')
         self.con.expect('#')
         self.con.sendline('show backup-upgrade-state')
