@@ -16,7 +16,7 @@ pipeline {
         stage('Copy image to KVM') {
             steps {
                 echo 'Copy file vscg-' + szVer + '.ximg to FTP'
-                sh 'ansible -u scg kvm -m copy -a "src=$WORKSPACE/vscg-$szVer.ximg dest=/home/scg/"'
+                sh 'ansible -u scg ftp -m copy -a "src=$WORKSPACE/vscg-$szVer.ximg dest=/home/scg/"'
             }
         }
        
