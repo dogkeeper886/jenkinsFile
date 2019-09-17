@@ -12,6 +12,13 @@ pipeline {
                 sh 'wget http://tdc-repository.arrisi.com:8081/nexus/content/repositories/releases/ruckus/official/mega/sz/5.2.0.0/ML/$szVer/vscg/vscg-$szVer.ximg'
                 
             }
-        }       
+        }
+        stage('Copy image to KVM') {
+            steps {
+                echo 'Copy file vscg-' + szVer + '.ximg to FTP'
+                sh 'ansible -u scg kvm -m copy -a "src=$WORKSPACE/vscg-$szVer.ximg dest=/home/scg/"'
+            }
+        }
+       
     }
 }
