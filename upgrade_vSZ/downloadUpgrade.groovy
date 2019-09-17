@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string(name: 'szVer', defaultValue: '5.2.0.0.476', description: 'Input SZ version')
-        booleanParam(name: 'UPGRADE', defaultValue: false, description: 'Upgrade vSZ')
+        booleanParam(name: 'upgrade', defaultValue: false, description: 'Upgrade vSZ')
         string(name: 'szIp', defaultValue: '10.206.6.115', description: 'Input SZ IP')
     }
     stages {
@@ -23,7 +23,7 @@ pipeline {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('vsz')
             }
-            when { environment name: 'UPGRADE', value: 'true' }
+            when { environment name: 'upgrade', value: 'true' }
             steps {
                 echo 'Upgrade start'
                 sh 'python3 upgrade_vSZ/upgradeVsz.py'
