@@ -69,8 +69,6 @@ class vdpCli:
         self.con.expect('Retype')
         self.con.sendline(pass_word)
         self.con.expect('#')
-        self.con.sendcontrol(']')
-        self.con.close()
 
 vdp = vdpCli('192.168.162.8', 'admin')
 vdp.setup(environ['BITBUCKET_COMMON_CREDS_PSW'], '192.168.162.5')
