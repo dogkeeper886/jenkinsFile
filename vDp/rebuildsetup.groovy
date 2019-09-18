@@ -35,8 +35,10 @@ pipeline {
             }
         }
         stage('Setup vDp') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('vsz')
+            }
             when { environment name: 'SETUP', value: 'true' }
-
             steps {
                 echo 'Setup start'
                 echo 'Wait for vDP start'
