@@ -52,10 +52,10 @@ class opsk:
         return result
 
 
-a = opsk('http://10.206.6.112:5000/v3/', 'Default', 'lab',
+glance = opsk('http://10.206.6.112:5000/v3/', 'Default', 'lab',
          environ['BITBUCKET_COMMON_CREDS_USR'], environ['BITBUCKET_COMMON_CREDS_PSW'])
 
 imageName = 'vdp-' + environ['szVer'] + '.qcow2'
-uploadResult = a.uploadImage(imageName)
+uploadResult = glance.uploadImage(imageName)
 
 print(uploadResult)

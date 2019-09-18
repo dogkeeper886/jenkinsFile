@@ -21,29 +21,17 @@ pipeline {
             }
             steps {
                 echo 'Upload file vdp-' + szVer + '.qcow2 to Openstack'
-                //sh 'ansible -u root kvm -m copy -a "src=$WORKSPACE/vdp-$szVer.qcow2 dest=/var/lib/libvirt/images/"'
                 sh 'python3 vDp/uploadImage.py'
             }
         }
-        /*stage('Rebuild vDP') {                                
+        stage('Rebuild vDP') {                                
             when { environment name: 'REBUILD', value: 'true' }
             steps {
                 echo 'Rebuild start'
-                sh 'ansible -u root kvm -m virt -a "name=vdp state=shutdown"'
-                //sh 'ansible -u root kvm -m virt -a "name=vdp command=status"'
-                retry(3) {
-                    sh 'python3 vDp/statusCheck.py || sleep 30'
-                }
-                sh 'ansible -u root kvm -m file -a "path=/var/lib/libvirt/images/vdp.qcow2 state=absent"'
-                sh 'ansible -u root kvm -m copy -a "remote_src=yes src=/var/lib/libvirt/images/vdp-$szVer.qcow2 dest=/var/lib/libvirt/images/vdp.qcow2"'
-                sh 'ansible -u root kvm -m virt -a "name=vdp state=running"'
-                sh 'ansible -u root kvm -m virt -a "name=vdp command=status"'
+                sh 'python3 vDp/rebuildInstance.py'
             }
-        }*/
+        }
         stage('Setup vDp') {
-            /*environment {
-                BITBUCKET_COMMON_CREDS = credentials('kvm')
-            }*/
             when { environment name: 'SETUP', value: 'true' }
 
             steps {
