@@ -24,7 +24,10 @@ pipeline {
                 sh 'python3 vDp/uploadImage.py'
             }
         }
-        stage('Rebuild vDP') {                                
+        stage('Rebuild vDP') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('openstack')
+            }                                
             when { environment name: 'REBUILD', value: 'true' }
             steps {
                 echo 'Rebuild start'
