@@ -34,7 +34,7 @@ class opsk:
             print(file, 'not exist')
             return False
 
-    def createImage(self, name):
+    def uploadImage(self, name):
         result = None
         if self.fileExist(name):
             print('Upload skip')
@@ -48,7 +48,7 @@ class opsk:
                 'container_format': 'bare',
                 # 'visibility': 'public',
             }
-            result = self.conn.image.create_image(**image_attrs)
+            result = self.conn.image.upload_image(**image_attrs)
         return result
 
 
@@ -56,6 +56,6 @@ a = opsk('http://10.206.6.112:5000/v3/', 'Default', 'lab',
          environ['BITBUCKET_COMMON_CREDS_USR'], environ['BITBUCKET_COMMON_CREDS_PSW'])
 
 imageName = 'vdp-' + environ['szVer'] + '.qcow2'
-uploadResult = a.createImage(imageName)
+uploadResult = a.uploadImage(imageName)
 
 print(uploadResult)
