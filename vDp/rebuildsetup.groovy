@@ -15,13 +15,17 @@ pipeline {
                 
             }
         }
-        stage('Copy image to KVM') {
+        stage('Upload image to openstack') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('openstack')
+            }
             steps {
-                echo 'Copy file vdp-' + szVer + '.qcow2 to KVM'
-                sh 'ansible -u root kvm -m copy -a "src=$WORKSPACE/vdp-$szVer.qcow2 dest=/var/lib/libvirt/images/"'
+                echo 'Upload file vdp-' + szVer + '.qcow2 to Openstack'
+                //sh 'ansible -u root kvm -m copy -a "src=$WORKSPACE/vdp-$szVer.qcow2 dest=/var/lib/libvirt/images/"'
+                sh 'python3 vDp/uploadImage.py'
             }
         }
-        stage('Rebuild vDP') {                                
+        /*stage('Rebuild vDP') {                                
             when { environment name: 'REBUILD', value: 'true' }
             steps {
                 echo 'Rebuild start'
@@ -35,7 +39,7 @@ pipeline {
                 sh 'ansible -u root kvm -m virt -a "name=vdp state=running"'
                 sh 'ansible -u root kvm -m virt -a "name=vdp command=status"'
             }
-        }
+        }*/
         stage('Setup vDp') {
             /*environment {
                 BITBUCKET_COMMON_CREDS = credentials('kvm')
