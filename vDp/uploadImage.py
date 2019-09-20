@@ -58,6 +58,6 @@ glance = opsk('http://10.206.6.112:5000/v3/', 'Default', 'lab',
 
 with open('env.json', 'rt') as fh:
     envInfo = json.load(fh)
-uploadResult = glance.uploadImage(envInfo.env['imgName'])
+uploadResult = glance.uploadImage(envInfo['imgName'])
 
 print(uploadResult)
