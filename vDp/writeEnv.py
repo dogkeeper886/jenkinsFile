@@ -1,4 +1,3 @@
-from os import environ
 from os.path import exists
 from sys import argv
 import json

@@ -1,6 +1,7 @@
 import openstack
 from os import environ
 import sys
+import json
 
 
 class opsk:
@@ -53,9 +54,10 @@ class opsk:
 
 
 glance = opsk('http://10.206.6.112:5000/v3/', 'Default', 'lab',
-         environ['BITBUCKET_COMMON_CREDS_USR'], environ['BITBUCKET_COMMON_CREDS_PSW'])
+              environ['BITBUCKET_COMMON_CREDS_USR'], environ['BITBUCKET_COMMON_CREDS_PSW'])
 
-imageName = 'vdp-' + environ['szVer'] + '.qcow2'
-uploadResult = glance.uploadImage(imageName)
+with open('env.json', 'rt') as fh:
+    envInfo = json.load(fh)
+uploadResult = glance.uploadImage(envInfo.env['imgName'])
 
 print(uploadResult)

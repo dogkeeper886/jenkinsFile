@@ -7,7 +7,7 @@ pipeline {
         stage('rebuild_start') {
             steps {
                 echo 'This is rebuild start'
-                sh 'python3 vDp/writeEnv.py szVer $szVer'
+                sh 'python3 vDp/writeEnv.py imgName vdp-$szVer.qcow2'
             }
         }
                 stage('Download file') {
