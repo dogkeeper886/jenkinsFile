@@ -32,7 +32,7 @@ pipeline {
                 sh 'python3 vDp/rebuildInstance.py'
             }
         }
-        stage('Setup start')
+        stage('Setup start') {
             steps {
                 echo 'This is rebuild start'
             }
