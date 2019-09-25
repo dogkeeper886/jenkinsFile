@@ -1,10 +1,12 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'szVer', defaultValue: '5.2.0.0.476', description: 'Input SZ version')
+        string(name: 'szVer', defaultValue: '5.2.0.0.', description: 'Input SZ version')
         string(name: 'projectName', defaultValue: 'MY_PROJECT', description: 'Input project name')
         string(name: 'instanceId', defaultValue: 'MY_ID', description: 'Input instance id')
         string(name: 'instanceName', defaultValue: 'MY_NAME', description: 'Input instance name')
+        string(name: 'vdpIp', defaultValue: 'MY_IP', description: 'Input vDP ip')
+        string(name: 'vszIp', defaultValue: 'MY_ip', description: 'Input vSZ ip')
     }
     stages {
         stage('Download file') {
