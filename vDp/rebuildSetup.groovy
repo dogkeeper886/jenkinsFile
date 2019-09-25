@@ -22,7 +22,7 @@ pipeline {
                 echo 'Upload file vdp-' + szVer + '.qcow2 to Openstack'
                 sh 'python3 vDp/uploadImage.py'
             }
-
+        }
         stage('Rebuild start') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('openstack')
@@ -36,5 +36,6 @@ pipeline {
             steps {
                 echo 'This is rebuild start'
             }
+        }
     }
 }
