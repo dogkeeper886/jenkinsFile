@@ -37,6 +37,7 @@ pipeline {
         stage('Setup start') {
             steps {
                 echo 'This is setup start'
+                sh 'python3 vDp/setupVdp.py'
             }
         }
     }
