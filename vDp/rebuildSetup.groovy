@@ -35,6 +35,9 @@ pipeline {
             }
         }
         stage('Setup start') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('vsz')
+            }
             steps {
                 echo 'This is setup start'
                 echo 'Wait for vDP start'
