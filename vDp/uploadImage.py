@@ -53,11 +53,10 @@ class opsk:
         return result
 
 
-glance = opsk('http://10.206.6.112:5000/v3/', 'Default', 'lab',
+glance = opsk('http://10.206.6.112:5000/v3/', 'Default', environ['projectName'],
               environ['BITBUCKET_COMMON_CREDS_USR'], environ['BITBUCKET_COMMON_CREDS_PSW'])
 
-with open('env.json', 'rt') as fh:
-    envInfo = json.load(fh)
-uploadResult = glance.uploadImage(envInfo['imgName'])
+imgName = 'vdp-' + environ['szVer'] + '.qcow2'
+uploadResult = glance.uploadImage(imgName)
 
 print(uploadResult)
