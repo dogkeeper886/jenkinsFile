@@ -6,7 +6,7 @@ pipeline {
         string(name: 'instanceId', defaultValue: 'MY_ID', description: 'Input instance id')
         string(name: 'instanceName', defaultValue: 'MY_NAME', description: 'Input instance name')
         string(name: 'vdpIp', defaultValue: 'MY_IP', description: 'Input vDP ip')
-        string(name: 'vszIp', defaultValue: 'MY_ip', description: 'Input vSZ ip')
+        string(name: 'vszIp', defaultValue: 'MY_IP', description: 'Input vSZ ip')
     }
     stages {
         stage('Download file') {
@@ -37,6 +37,8 @@ pipeline {
         stage('Setup start') {
             steps {
                 echo 'This is setup start'
+                echo 'Wait for vDP start'
+                sleep 180
                 sh 'python3 vDp/setupVdp.py'
             }
         }
