@@ -22,7 +22,7 @@ class vdpCli:
         self.con.sendline('logout')
         self.con.expect(pexpect.EOF)
 
-    def setup(self, pass_word, szIp, dpIp, dpMask, dpGateway):
+    def setup(self, pass_word, szIp):
         self.con.sendline('setup')
         # hostname
         self.con.expect('Do you want to modify the vSZ-D hostname')
@@ -32,19 +32,9 @@ class vdpCli:
         self.con.sendline('1')
         # management interface
         self.con.expect('Select IP configuration')
-        self.con.sendline('2')
-        self.con.expect('Do you want to apply this network configuration')
-        self.con.sendline('y')
         # data interface
         self.con.expect('Select IP configuration')
-        # self.con.sendline('2')
-        self.con.sendline('1')
-        self.con.expect('IP Address')
-        self.con.sendline(dpIp)
-        self.con.expect('Netmask')
-        self.con.sendline(dpMask)
-        self.con.expect('Gateway')
-        self.con.sendline(dpGateway)
+        self.con.sendline('2')
         self.con.expect('Do you want to apply this network configuration')
         self.con.sendline('y')
         # dns
@@ -80,5 +70,4 @@ class vdpCli:
 
 
 vdp = vdpCli(environ['vdpIp'], 'admin')
-vdp.setup(environ['BITBUCKET_COMMON_CREDS_PSW'], environ['vszIp'],
-          environ['dpIp'], environ['dpMask'], environ['dpGateway'])
+vdp.setup(environ['BITBUCKET_COMMON_CREDS_PSW'], environ['vszIp'])

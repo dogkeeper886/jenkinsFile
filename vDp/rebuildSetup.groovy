@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Setup start') {
             steps {
-                echo 'This is rebuild start'
+                echo 'This is setup start'
             }
         }
     }
