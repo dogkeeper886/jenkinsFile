@@ -32,6 +32,9 @@ class vdpCli:
         self.con.sendline('1')
         # management interface
         self.con.expect('Select IP configuration')
+        self.con.sendline('2')
+        self.con.expect('Do you want to apply this network configuration')
+        self.con.sendline('y')
         # data interface
         self.con.expect('Select IP configuration')
         self.con.sendline('2')
