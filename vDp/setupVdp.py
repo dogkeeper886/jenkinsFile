@@ -46,6 +46,7 @@ class vdpCli:
         self.con.expect('Secondary DNS')
         self.con.sendline('')
         # nat ip
+        self.con.timeout = 60
         self.con.expect('Data Interface external NAT IP')
         self.con.sendline('')
         # cert
