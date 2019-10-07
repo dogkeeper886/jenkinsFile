@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 echo 'Upgrade start'
-                sh 'python3 backupUpgrade/sshClient.py'
+                sh 'python3 backupUpgrade/sshClient.py $szIp $fileName'
             }
         }
        
