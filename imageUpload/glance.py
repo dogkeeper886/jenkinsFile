@@ -2,6 +2,7 @@ import openstack
 import sys
 import urllib.request
 import os
+from os import environ
 
 
 class opstk:
@@ -70,6 +71,7 @@ class opstk:
             print(err)
             exit(1)
 
+
 if len(sys.argv) != 3:
     print('[FILE_NAME] [FILE_URL]')
     exit(1)
@@ -80,7 +82,7 @@ myConnect.create_connection(
     domain='Default',
     project_name='lab',
     username='environ['BITBUCKET_COMMON_CREDS_USR'],
-    password='environ['BITBUCKET_COMMON_CREDS_PSW']'
+    password = 'environ['BITBUCKET_COMMON_CREDS_PSW']'
 )
 
 myConnect.upload_image()
