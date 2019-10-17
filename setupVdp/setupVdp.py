@@ -9,7 +9,7 @@ class setupVdp:
         self.vdpIp = vdpIp
         self.conn = pexpect.spawn(
             'ssh admin@' + self.vdpIp, encoding='utf-8', logfile=sys.stdout)
-        self.conn.timeout = 60
+        self.conn.timeout = 120
         self.conn.expect('password:')
         self.conn.sendline('admin')
         self.conn.expect('>')
