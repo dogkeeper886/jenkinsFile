@@ -49,8 +49,8 @@ class setupVdp:
         self.conn.expect('Data Interface external NAT IP')
         self.conn.sendline('')
         # cert
-        self.conn.expect('Do you want to upload vSZ server certificate chain')
-        self.conn.sendline('n')
+        #self.conn.expect('Do you want to upload vSZ server certificate chain')
+        #self.conn.sendline('n')
         # option 43
         self.conn.expect('Do you want to apply vSZ IP through DHCP Option 43')
         self.conn.sendline('n')
