@@ -4,7 +4,7 @@ from os import environ
 
 
 class setupVsz:
-    def __init__(self, vszIp, vdpIp):
+    def __init__(self, vszIp):
         self.vszIp = vszIp
         self.conn = pexpect.spawn(
             'ssh admin@' + self.vszIp, encoding='utf-8', logfile=sys.stdout)
@@ -26,17 +26,17 @@ class setupVsz:
         self.conn.expect('you want to install the "High Scale" profile? (y/n)')
         self.conn.sendline('y')
 
+    def vsze(self):
+        self.conn.sendline('1')
+        self.conn.expect(
+            'Are you sure you want to install the "Essentials" profile? (y/n)')
+        self.conn.sendline('y')
+
     def ipv4(self):
         self.conn.expect('Select address type')
         self.conn.sendline('1')
         self.conn.expect('Select IP configuration')
         self.conn.sendline('2')
-        self.conn.expect('Select IP configuration')
-        self.conn.sendline('2')
-        self.conn.expect('Select IP configuration')
-        self.conn.sendline('2')
-        self.conn.expect('Select gateway interface')
-        self.conn.sendline('3')
 
     def dns(self):
         self.conn.expect('Primary DNS')
@@ -45,11 +45,15 @@ class setupVsz:
         self.conn.sendline('')
         self.conn.expect('Do you want to apply the settings')
         self.conn.sendline('y')
-        
 
-    def setup(self, passWord):
+    def setup(self, passWord, profile):
         self.conn.sendline('setup')
         self.conn.expect('Select vSZ Profile (1/2)')
+
+        if profile == 'e':
+            self.vsze
+        else:
+            self.vszh
 
         self.vszIp()
         self.ipv4()
@@ -82,5 +86,6 @@ class setupVsz:
         self.conn.expect('#')
 
 
-vdp = setupVdp(environ['vszIp'], environ['vdpIp'])
-vdp.setup(environ['BITBUCKET_COMMON_CREDS_PSW'])
+vsz = setupVsz(environ['vszIp'])
+vsz.setup(environ['BITBUCKET_COMMON_CREDS_PSW'], environ['profile'])
+
