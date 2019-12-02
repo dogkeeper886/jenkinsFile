@@ -80,7 +80,7 @@ myConnect = opstk()
 myConnect.create_connection(
     auth_url='http://10.206.5.12:5000/v3/',
     domain='Default',
-    project_name='lab',
+    project_name='vdp',
     username=environ['BITBUCKET_COMMON_CREDS_USR'],
     password=environ['BITBUCKET_COMMON_CREDS_PSW']
 )
