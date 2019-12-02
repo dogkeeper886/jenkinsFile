@@ -19,7 +19,7 @@ class file_check:
     def ftp_check(self):
         ftpStatus = bool()
         self.ftp = FTP('10.206.5.22')
-        self.ftp.login(user='scg', passwd='scg')
+        self.ftp.login(user=self.ftpUname, passwd=self.ftpPword)
         if self.fileName in self.ftp.nlst():
             print('File exist at FTP')
             ftpStatus = True
