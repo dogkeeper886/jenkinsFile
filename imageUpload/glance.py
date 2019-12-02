@@ -78,7 +78,7 @@ if len(sys.argv) != 3:
 
 myConnect = opstk()
 myConnect.create_connection(
-    auth_url='http://10.206.6.112:5000/v3/',
+    auth_url='http://10.206.5.12:5000/v3/',
     domain='Default',
     project_name='lab',
     username=environ['BITBUCKET_COMMON_CREDS_USR'],
