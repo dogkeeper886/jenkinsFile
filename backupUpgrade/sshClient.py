@@ -29,7 +29,7 @@ class sshClient:
     def upgrade_start(self):
         print('Start upgrade')
         self.conn.sendline(
-            'backup-upgrade ftp://scg:scg@10.206.20.107/' + self.fileName)
+            'backup-upgrade ftp://scg:scg@10.206.5.22/' + self.fileName)
         self.conn.expect('[yes/no]')
         self.conn.sendline('yes')
         self.conn.expect('Starting to copy')
