@@ -41,6 +41,8 @@ class setupVsz:
         self.conn.sendline('')
         self.conn.expect('(y/n)')
         self.conn.sendline('y')
+        self.conn.expect('(y/n)')
+        self.conn.sendline('y')
         self.conn.expect('#')
 
 vsz = setupVsz(environ['vszIp'])
