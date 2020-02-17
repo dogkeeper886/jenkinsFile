@@ -59,7 +59,8 @@ class setupVsz:
     def monitor(self):
         self.conn.expect('Starting setup')
         self.conn.timeout = 2700
-        self.conn.expect('Finish')
+        self.conn.expect('Press the enter key to continue')
+        self.conn.sendline('')
 
 
 vsz = setupVsz(environ['vszIp'])
