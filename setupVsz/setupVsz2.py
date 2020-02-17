@@ -45,7 +45,25 @@ class setupVsz:
         self.conn.expect('(y/n)')
         self.conn.sendline('n')
 
+    def admPwd(self, admPwd):
+        self.conn.expect('admin password')
+        self.conn.sendline(admPwd)
+        self.conn.expect('password again')
+        self.conn.sendline(admPwd)
+        self.conn.expect('command password')
+        self.conn.sendline(admPwd)
+        self.conn.expect('password again')
+        self.conn.sendline(admPwd)
+        self.conn.expect(' password done')
+
+    def monitor(self):
+        self.conn.expect('Starting setup')
+        self.conn.timeout = 900
+        self.conn.expect('Finish')
+
 
 vsz = setupVsz(environ['vszIp'])
 vsz.cluster(environ['vszClusterName'], environ['vszConDes'])
 vsz.nat(environ['vszNatIp'])
+vsz.admPwd(environ['BITBUCKET_COMMON_CREDS_PSW'])
+vsz.monitor()
