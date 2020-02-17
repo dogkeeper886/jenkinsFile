@@ -21,5 +21,13 @@ class setupVsz:
         self.conn.sendline('logout')
         self.conn.expect(pexpect.EOF)
 
+    def vszProfile(self, proFIle):
+        self.conn.sendline('setup')
+        self.conn.expect('(1/2):')
+        self.conn.sendline(proFIle)
+        self.conn.expect('(y/n)[Y]')
+        self.conn.sendline('')
+
 
 vsz = setupVsz(environ['vszIp'])
+vsz.vszProfile(environ['vszProfile'])
