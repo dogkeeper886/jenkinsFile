@@ -58,7 +58,7 @@ class setupVsz:
 
     def monitor(self):
         self.conn.expect('Starting setup')
-        self.conn.timeout = 900
+        self.conn.timeout = 1800
         self.conn.expect('Finish')
 
 
