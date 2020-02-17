@@ -10,7 +10,7 @@ pipeline {
         string(name: 'vszNatIp', defaultValue: 'MY_NATIP', description: 'Nat ip address')
     }
     stages {
-        stage('Setup1 start') {
+        stage('Setup Network') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('vsz')
             }
@@ -19,7 +19,7 @@ pipeline {
                 sh 'python3 setupVsz/setupVsz.py'
             }
         }
-        stage('Setup2 start') {
+        stage('Setup Cluster') {
             environment {
                 BITBUCKET_COMMON_CREDS = credentials('vsz')
             }
