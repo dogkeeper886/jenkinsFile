@@ -35,6 +35,13 @@ class setupVsz:
     def vszIpType(self, ipType):
         self.conn.expect('(1/2)')
         self.conn.sendline(ipType)
+        self.conn.expect('DNS')
+        self.conn.sendline('10.10.10.10')
+        self.conn.expect('DNS')
+        self.conn.sendline('')
+        self.conn.expect('(y/n)')
+        self.conn.sendline('y')
+        self.conn.expect('#')
 
 vsz = setupVsz(environ['vszIp'])
 vsz.vszProfile(environ['vszProfile'])
