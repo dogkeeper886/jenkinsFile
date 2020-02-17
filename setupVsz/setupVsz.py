@@ -25,7 +25,7 @@ class setupVsz:
         self.conn.sendline('setup')
         self.conn.expect('(1/2)')
         self.conn.sendline(proFIle)
-        self.conn.expect('(y/n)[Y]')
+        self.conn.expect('(y/n)')
         self.conn.sendline('')
 
 
